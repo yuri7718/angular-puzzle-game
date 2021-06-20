@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ImageService } from '../services/image.service';
 import { TimeBlockLimitationService } from '../services/time-block-limitation.service';
+import { RouteChangeService } from '../services/route-change.service';
 import { wrapGrid } from 'animate-css-grid';
 import { ActivatedRoute, Router } from '@angular/router';
 import { interval } from 'rxjs';
@@ -35,8 +36,13 @@ export class PgpageComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private router: Router,
     private imageService: ImageService,
-    private timeBlockLimitationService: TimeBlockLimitationService
+    private timeBlockLimitationService: TimeBlockLimitationService,
+    private routeChangeService: RouteChangeService
     ) {
+    
+    if (this.routeChangeService.getPreviousRoute() === "") {
+      this.router.navigate(['/app']);
+    }
     
     /*
       A B C
@@ -58,10 +64,6 @@ export class PgpageComponent implements OnInit {
     this.displayedTime = this.displayTime(this.timeLeft);
     this.timeBlockLimitation = this.timeBlockLimitationService.getLimitation();
     
-    if (this.timeLeft != 30 && this.timeLeft != 60 && this.timeLeft != 120 && this.timeLeft != 300) {
-      this.router.navigate(['/app']);
-    }
-
     this.form = new FormGroup({
       'name': new FormControl(null, Validators.required),
       'email': new FormControl(null, [Validators.required, Validators.email]),
@@ -76,11 +78,9 @@ export class PgpageComponent implements OnInit {
       120: "5$",
       300: "1$"
     }
-    
   }
 
   ngOnInit(): void {
-
     this.grid = document.querySelector(".grid") as HTMLElement;
 
     let canvas = document.createElement('canvas') as HTMLCanvasElement;

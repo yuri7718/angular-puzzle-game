@@ -44,3 +44,11 @@
 .grid > button {
     border: none;
 }
+
+.modal {
+    pointer-events: none;
+}
+
+.modal-dialog {
+    pointer-events: all;
+ }

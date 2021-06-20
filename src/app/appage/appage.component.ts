@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ImageService } from '../services/image.service';
+import { RouteChangeService } from '../services/route-change.service';
 
 @Component({
   selector: 'app-appage',
@@ -8,11 +9,12 @@ import { ImageService } from '../services/image.service';
 })
 export class AppageComponent implements OnInit {
 
-  constructor(private imageService: ImageService) {
+  constructor(private imageService: ImageService, private routeChangeService: RouteChangeService) {
   }
 
   ngOnInit(): void {
-    (document.getElementById("puzzle-img") as HTMLImageElement).src = this.imageService.getPuzzleImgURL();  
+    (document.getElementById("puzzle-img") as HTMLImageElement).src = this.imageService.getPuzzleImgURL();
+    this.routeChangeService.setRoute();
   }
 
   loadImage(event: any) {
