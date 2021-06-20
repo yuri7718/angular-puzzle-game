@@ -9,7 +9,7 @@ export class ImageService {
 
   constructor() {
     // source: https://unsplash.com/photos/nKC772R_qog
-    this.puzzleImgSrc = "/assets/edgar-nKC772R_qog-unsplash.jpg";
+    this.puzzleImgSrc = "assets/edgar-nKC772R_qog-unsplash.jpg";
   }
 
   setPuzzleImgSrc(src: string) {
