@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <div class="row">
+                <div class="col-12">
+                    <h5 class="text-center">Winning threshold configurations:</h5>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <p class="card-header">Time limit</p>
+                        <div class="card-body">
+                            <h6 class="card-title">30 seconds</h6>
+                            <p class="card-text">50$</p>
+                            <button routerLink="/puzzle/30" type="button" class="btn btn-outline-primary">Start Game</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <p class="card-header">Time limit</p>
+                        <div class="card-body">
+                            <h6 class="card-title">1 minute</h6>
+                            <p class="card-text">10$</p>
+                            <button routerLink="/puzzle/60" type="button" class="btn btn-outline-primary">Start Game</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <p class="card-header">Time limit</p>
+                        <div class="card-body">
+                            <h6 class="card-title">2 minutes</h6>
+                            <p class="card-text">5$</p>
+                            <button routerLink="/puzzle/120" type="button" class="btn btn-outline-primary">Start Game</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="card">
+                        <p class="card-header">Time limit</p>
+                        <div class="card-body">
+                            <h6 class="card-title">5 minutes</h6>
+                            <p class="card-text">1$</p>
+                            <button routerLink="/puzzle/300" type="button" class="btn btn-outline-primary">Start Game</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 d-flex flex-column">
+            <div class="d-flex justify-content-center">
+                <img id="puzzle-img" class="puzzle" src="" alt="puzzle image">
+            </div>
+            <input id="load-img" type="file" (change)="loadImage($event)" style="display: none">
+            <div class="d-flex justify-content-center" style="margin-top: 20px;">
+                <button class="btn btn-outline-primary" onclick="document.getElementById('load-img').click()">Load Image</button>
+            </div>
+        </div>
+    </div>
+</div>

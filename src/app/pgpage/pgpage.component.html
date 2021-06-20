@@ -1,0 +1,82 @@
+<div class="container">
+    <div>Time Left: {{displayedTime}}
+    <button class="btn btn-outline-primary" id="retry" (click)="retry()" [disabled]="true"><span>Retry </span><span id="count"></span></button>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <h5>Puzzle</h5>
+            <div class="puzzle">
+                <div class="grid">
+                    <button class="tile tile--1" style="--area:A"></button>
+                    <button class="tile tile--2" style="--area:B"></button>
+                    <button class="tile tile--3" style="--area:C"></button>
+                    <button class="tile tile--4" style="--area:D"></button>
+                    <button class="tile tile--5" style="--area:E"></button>
+                    <button class="tile tile--6" style="--area:F"></button>
+                    <button class="tile tile--7" style="--area:G"></button>
+                    <button class="tile tile--8" style="--area:H"></button>
+                    <button class="tile tile--empty" style="--area:I"></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-6">
+            <h5>Original Image</h5>
+            <img id="puzzle-img" class="puzzle" src="" alt="puzzle image">
+        </div>
+    </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="win" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Congratulations!</h5>
+          <button routerLink="/app" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Please enter your information to win <span id="prize"></span></p>
+          <form name="form" [formGroup]="form">
+            <div class="mb-3">
+              <label for="name" class="form-label" required minlength="1">Name</label>
+              <input type="text" class="form-control" id="name" formControlName="name">
+              <small *ngIf="name && name.invalid && name.touched" class="text-danger">Name is required</small>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="email" formControlName="email">
+              <small *ngIf="email && email.invalid && email.touched" class="text-danger">Email is required</small>
+            </div>
+            <div class="mb-3">
+              <label for="phone" class="form-label">Telephone number</label>
+              <input type="tel" class="form-control" id="phone" formControlName="phone">
+              <small *ngIf="phone && phone.invalid && phone.touched" class="text-danger">Telephone number is required</small>
+            </div>
+            <button routerLink="/app" type="submit" class="btn btn-primary" (click)="submitForm()" [disabled]="form.invalid">Submit</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button routerLink="/app" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal fade" id="fail" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" >Time's up</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Please try again
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Go back</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

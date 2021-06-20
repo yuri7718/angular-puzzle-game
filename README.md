@@ -25,3 +25,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## References
+[Coding a festive puzzle game with modern front-end techniques](https://simpleweb.co.uk/coding-a-festive-puzzle-game-with-modern-front-end-techniques/)
+
+[Solvability of N puzzle problem | Inversion Count theory |](https://www.youtube.com/watch?v=bhmCmbj9VAg)

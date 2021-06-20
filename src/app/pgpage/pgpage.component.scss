@@ -1,0 +1,46 @@
+.grid {
+    display: grid;
+    grid-template-areas:
+        "A B C"
+        "D E F"
+        "G H I";
+}
+
+.tile {
+    height: 0;
+    padding-bottom: 100%;
+    grid-area: var(--area, auto);
+    background-size: 300%;
+}
+
+.tile--1 {
+    background-position: top left;
+}
+.tile--2 {
+    background-position: top center;
+}
+.tile--3 {
+    background-position: top right;
+}
+.tile--4 {
+    background-position: center left;
+}
+.tile--5 {
+    background-position: center;
+}
+.tile--6 {
+    background-position: center right;
+}
+.tile--7 {
+    background-position: bottom left;
+}
+.tile--8 {
+    background-position: bottom center;
+}
+.tile--empty {
+    background-position: bottom right;
+}
+
+.grid > button {
+    border: none;
+}
